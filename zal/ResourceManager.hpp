@@ -7,6 +7,7 @@ class ResourceManager
   Resource* wskaznik;
   public:
     ResourceManager(){wskaznik=new Resource;}
+    ResourceManager(){this->wskaznik=wskaznik;}
     ~ResourceManager() {delete wskaznik;}
     double get() { return wskaznik[0].get(); }
     ResourceManager(const ResourceManager& res){wskaznik=res.wskaznik;}
