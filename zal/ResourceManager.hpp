@@ -6,10 +6,10 @@ class ResourceManager
 {
   Resource* wskaznik;
 public:    
-    ResourceManager(){wskaznik= NULL;}
+    ResourceManager(){wskaznik= new Resource;}
     ~ResourceManager() {delete wskaznik;}
     double get() { return wskaznik[0].get(); }
-    ResourceManager(const ResourceManager& res):wskaznik(res.wskaznik){}
+    ResourceManager(const ResourceManager& res)=delete;
     ResourceManager& operator=(const ResourceManager& res){
       wskaznik=res.wskaznik;
       return *this;
