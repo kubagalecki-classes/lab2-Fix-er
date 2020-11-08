@@ -6,6 +6,7 @@ class ResourceManager : Resource
 {
   public:
   {
+    friend class Resource
     ResourceManager()                          { std::cout << "ResourceManager()\n"; }
     ResourceManager(const Resource&)               { std::cout << "ResourceManager(const Resource&)\n"; }
     ResourceManager(Resource&&)                    { std::cout << "ResourceManager(Resource&&)\n"; }
