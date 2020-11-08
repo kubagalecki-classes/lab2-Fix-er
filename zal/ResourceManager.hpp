@@ -2,18 +2,14 @@
 
 #include "Resource.hpp"
 
-class ResourceManager : Resource
+class ResourceManager
 {
   public:
   {
-    friend class Resource
-    ResourceManager()                          { std::cout << "ResourceManager()\n"; }
-    ResourceManager(const Resource&)               { std::cout << "ResourceManager(const Resource&)\n"; }
-    ResourceManager(Resource&&)                    { std::cout << "ResourceManager(Resource&&)\n"; }
-    ResourceManager& operator=(const Resource&)    { std::cout << "operator=(const Resource&)\n"; return *this; }
-    ResourceManager& operator=(Resource&&)         { std::cout << "operator=(Resource&&)\n"; return *this; }
-    ~ResourceManager()                         { std::cout << "~Resource()\n"; }
-    double getdouble() { return Resource.get(); }
-    ResourceManager getRM() { return ResourceManager(); }
+    Resource* wskaznik;
+    ResourceManager(){wskaznik=NULL;}
+    ResourceManager(const Resource& res){wskaznik=res}
+    ~ResourceManager() {}
+    double get() { return wskaznik->get(); }
 };
 };
