@@ -2,14 +2,21 @@
 
 #include "Resource.hpp"
 
-class ResourceManager
+class ResourceManager:Resource
 {
+  Resource* wskaznik;
   public:
-  {
-    Resource* wskaznik;
-    ResourceManager(){wskaznik=NULL;}
-    ResourceManager(const Resource& res){wskaznik=res;}
-    ~ResourceManager() {}
-    double get() { return wskaznik->get(); }
+  {    
+    ResourceManager(){wskaznik= new Resource;}
+    ResourceManager(ResourceManager& res){wskaznik=res;}
+    ResourceManager(const ResourceManager& res):wskaznik(res.wskaznik){}
+    ResourceManager& operator=(const ResourceManager& res){wskaznik=res.wskaznik; return *this; }
+    ResourceManager(const ResourceManager&& res):wskaznik(std::move(res.wskaznik)){}
+    ResourceManager& operator=(ResourceManager&& res){
+      wskaznik=std::move(res.wskaznik);
+      return *this;
+    }
+    ~ResourceManager() {delete wskaznik}
+    double get() { return wskaznik[0].get(); }
 };
 };
