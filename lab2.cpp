@@ -1,6 +1,15 @@
 #include <iostream>
+struct Liczba
+{
+    Liczba(int w) : wartosc{w} {}
+    Liczba(const Liczba& l) : wartosc{l.wartosc} { std::cout << "Done"; }
+
+    int wartosc;
+};
 
 int main()
 {
-    puts("Hello, World!");
+    Liczba a{1};
+    Liczba b{a};  // W celu konstrukcji b wołamy konstruktor kopiujący z argumentem 'a'
+    Liczba c = a; // Tutaj także wołamy konstruktor kopiujący, vide lab. 1
 }
