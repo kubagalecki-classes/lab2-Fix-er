@@ -6,17 +6,17 @@ class ResourceManager
 {
   Resource* wskaznik;
 public:    
-    ResourceManager(){wskaznik= new Resource;}
+    ResourceManager(){wskaznik= NULL;}
     ~ResourceManager() {delete wskaznik;}
     double get() { return wskaznik[0].get(); }
     ResourceManager(const ResourceManager& res):wskaznik(res.wskaznik){}
     ResourceManager& operator=(const ResourceManager& res){
-      wskaznik=res;
+      wskaznik=res.wskaznik;
       return *this;
      }
-    ResourceManager(const ResourceManager&& res):wskaznik(std::move(res)){}
+    ResourceManager(const ResourceManager&& res):wskaznik(std::move(res.wskaznik)){}
     ResourceManager& operator=(ResourceManager&& res){
-      wskaznik=std::move(res);
+      wskaznik=std::move(res.wskaznik);
       return *this;
     }  
    
