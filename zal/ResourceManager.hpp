@@ -11,12 +11,12 @@ public:
     double get() { return wskaznik[0].get(); }
     ResourceManager(const ResourceManager& res):wskaznik(res.wskaznik){}
     ResourceManager& operator=(const ResourceManager& res){
-      wskaznik=res.wskaznik;
+      wskaznik=res;
       return *this;
      }
-    ResourceManager(const ResourceManager&& res):wskaznik(std::move(res.wskaznik)){}
+    ResourceManager(const ResourceManager&& res):wskaznik(std::move(res)){}
     ResourceManager& operator=(ResourceManager&& res){
-      wskaznik=std::move(res.wskaznik);
+      wskaznik=std::move(res);
       return *this;
     }  
    
