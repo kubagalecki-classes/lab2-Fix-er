@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Resource.hpp"
-
+using namespace std
 class ResourceManager
 {
   Resource* wskaznik;
@@ -14,10 +14,9 @@ class ResourceManager
      wskaznik=res.wskaznik;
     return *this;
     }
-    ResourceManager(const ResourceManager&& res):wskaznik{std::move(res.wskaznik)}{};
-    //ResourceManager& operator=(ResourceManager&& res){
-    //wskaznik=std::move(res.wskaznik);
-    //return *this;
-    }  
+    ResourceManager(const ResourceManager&& res):wskaznik{move(res.wskaznik)}{};
+    ResourceManager& operator=(ResourceManager&& res){
+    wskaznik=move(res.wskaznik);
+    return *this;}  
    
 };
