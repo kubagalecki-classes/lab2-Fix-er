@@ -20,8 +20,8 @@ class ResourceManager
       res.wskaznik = nullptr;
     };
     ResourceManager& operator=(ResourceManager&& res){
-    wskaznik=move(res.wskaznik);
-    res.wskaznik = nullptr;
+    /*wskaznik=move(res.wskaznik);
+    res.wskaznik = nullptr;*/
     return *this;}  
    
 };
