@@ -21,6 +21,7 @@ class ResourceManager
     };
     ResourceManager& operator=(ResourceManager&& res){
     wskaznik=move(res.wskaznik);
+    res.wskaznik = nullptr;
     return *this;}  
    
 };
