@@ -15,8 +15,8 @@ class ResourceManager
     return *this;
     }
     ResourceManager(const ResourceManager&& res):wskaznik{std::move(res.wskaznik)}{};
-    ResourceManager& operator=(ResourceManager&& res){
-    wskaznik=std::move(res.wskaznik);
+    //ResourceManager& operator=(ResourceManager&& res){
+    //wskaznik=std::move(res.wskaznik);
     return *this;
     }  
    
