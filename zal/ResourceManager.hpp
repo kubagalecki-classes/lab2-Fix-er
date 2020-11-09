@@ -21,3 +21,5 @@ class ResourceManager
     }  
    
 };
+
+ResourceManager getResourceManager() { return ResourceManager{}; }
