@@ -9,12 +9,12 @@ class ResourceManager
     ResourceManager(){wskaznik=new Resource;}
     ~ResourceManager() {delete wskaznik;}
     double get() { return wskaznik->get(); }
-    ResourceManager(const ResourceManager& res):wskaznik* (res.wskaznik){};
+    ResourceManager(const ResourceManager& res):wskaznik (res.wskaznik){};
     ResourceManager& operator=(const ResourceManager& res){
-      if(res!=this){
-     delete res;
-     wskaznik=res.wskaznik;
-     return *this;}}
+      if(&res!=this){
+        delete &res;
+        wskaznik=res.wskaznik;
+        return *this;}}
     ResourceManager(const ResourceManager&& res){
       wskaznik= res.wskaznik;
       res.wskaznik = nullptr;
