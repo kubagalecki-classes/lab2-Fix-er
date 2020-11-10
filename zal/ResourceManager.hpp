@@ -3,8 +3,7 @@
 #include "Resource.hpp"
 using namespace std;
 class ResourceManager
-{
-  
+{  
   public:
    Resource* wskaznik;
     ResourceManager(){wskaznik=new Resource;}
@@ -19,16 +18,15 @@ class ResourceManager
         wskaznik= new Resource(*res.wskaznik);
         return *this;}
                 
-    ResourceManager(const ResourceManager&& res){
+    ResourceManager(ResourceManager&& res){
       wskaznik=res.wskaznik;
-      res.wskaznik = 0;
+      res.wskaznik = nullptr;
     };
     ResourceManager& operator=(ResourceManager&& res){
     if(wskaznik==res.wskaznik) return *this;
         delete wskaznik;
         wskaznik=res.wskaznik;
-        res.wskaznik=0;
+        res.wskaznik=nullptr;
         return *this;
-        }  
-   
+        }     
 };
