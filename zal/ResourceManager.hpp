@@ -18,11 +18,12 @@ class ResourceManager
         wskaznik= new Resource(*res.wskaznik);
         return *this;}
                 
-    ResourceManager(const ResourceManager&& res):wskaznik{res.wskaznik}{
+    ResourceManager(const ResourceManager&& res){
+      wskaznik=res.wskaznik;
       res.wskaznik = nullptr;
     };
     ResourceManager& operator=(ResourceManager&& res){
-    if(this!=&res)
+    if(wskaznik!=res.wskaznik)
         delete wskaznik;
         wskaznik=res.wskaznik;
         res.wskaznik=nullptr;
