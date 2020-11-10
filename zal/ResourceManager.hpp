@@ -4,8 +4,9 @@
 using namespace std;
 class ResourceManager
 {
-  Resource* wskaznik;
+  
   public:
+   Resource* wskaznik;
     ResourceManager():wskaznik{new Resource}{}
     ~ResourceManager() {delete wskaznik;}
     double get() { return wskaznik->get(); }
@@ -28,8 +29,6 @@ class ResourceManager
         wskaznik=res.wskaznik;
         res.wskaznik=nullptr;
         return *this;
-        }
-
-    
+        }  
    
 };
