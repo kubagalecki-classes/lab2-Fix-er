@@ -7,33 +7,28 @@ class ResourceManager
   Resource* wskaznik;
   public:
     int i =0;
-    ResourceManager():wskaznik{new Resource}{i++;std::cout<<i<<'\n';}
-    ~ResourceManager() {delete wskaznik;i--;std::cout<<i<<'\n';}
+    ResourceManager():wskaznik{new Resource}{}
+    ~ResourceManager() {delete wskaznik;}
     double get() { return wskaznik->get(); }
-    ResourceManager(const ResourceManager& res):wskaznik{new Resource} {
-         i++;
-         std::cout<<i<<'\n';};
+    ResourceManager(const ResourceManager& res):wskaznik{res.wskaznik} {
+       wskaznik= new Resource(*res.wskaznik);
+         }
     ResourceManager& operator=(const ResourceManager& res){
       if(wskaznik!=res.wskaznik)
         delete wskaznik;
-        wskaznik= new Resource;
-        wskaznik=res.wskaznik;
+        wskaznik= new Resource(*res.wskaznik);
         return *this;
-        i++;std::cout<<i;}
-        
+                
     ResourceManager(const ResourceManager&& res){
       wskaznik= res.wskaznik;
       this->wskaznik = nullptr;
-      i++;std::cout<<i;
     };
     ResourceManager& operator=(ResourceManager&& res){
     if(wskaznik!=res.wskaznik)
         delete wskaznik;
-        wskaznik= new Resource;
-        wskaznik=res.wskaznik;
+        wskaznik= new Resource(*res.wskaznik);
         this->wskaznik=nullptr;
         return *this;
-        i++;std::cout<<i;
         }
 
     
