@@ -14,7 +14,7 @@ class ResourceManager
        wskaznik= new Resource(*res.wskaznik);
          }
     ResourceManager& operator=(const ResourceManager& res){
-      if(wskaznik!=res.wskaznik)
+      if(wskaznik==res.wskaznik) return *this;
         delete wskaznik;
         wskaznik= new Resource(*res.wskaznik);
         return *this;}
@@ -24,7 +24,7 @@ class ResourceManager
       res.wskaznik = nullptr;
     };
     ResourceManager& operator=(ResourceManager&& res){
-    if(wskaznik!=res.wskaznik)
+    if(wskaznik==res.wskaznik) return *this;
         delete wskaznik;
         wskaznik=res.wskaznik;
         res.wskaznik=nullptr;
