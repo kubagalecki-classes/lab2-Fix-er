@@ -21,13 +21,13 @@ class ResourceManager
                 
     ResourceManager(const ResourceManager&& res){
       wskaznik=res.wskaznik;
-      res.wskaznik = nullptr;
+      this->res.wskaznik = nullptr;
     };
     ResourceManager& operator=(ResourceManager&& res){
     if(wskaznik!=res.wskaznik)
         delete wskaznik;
         wskaznik=res.wskaznik;
-        res.wskaznik=nullptr;
+        this->res.wskaznik=nullptr;
         return *this;
         }  
    
